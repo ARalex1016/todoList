@@ -1,0 +1,60 @@
+@import "../../variable.css";
+
+.inputContainer {
+  width: 50%;
+  height: 5rem;
+  margin: 2rem auto;
+  display: flex;
+
+  .inputField {
+    width: 70%;
+    height: 100%;
+    font-family: var(--serif-font-family);
+    font-size: 2rem;
+    background-color: transparent;
+    border: 0.2rem solid var(--bg-main);
+    outline: none;
+    padding-left: 2.5rem;
+  }
+
+  .addBtn {
+    width: 30%;
+    height: 100%;
+    font-family: var(--serif-font-family);
+    font-size: 2rem;
+    font-weight: 800;
+    background-color: var(--bg-main);
+    border: none;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .inputContainer {
+    .inputField {
+      font-size: 1.8rem;
+    }
+
+    .addBtn {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .inputContainer {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputContainer {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .inputContainer {
+    width: 90%;
+  }
+}

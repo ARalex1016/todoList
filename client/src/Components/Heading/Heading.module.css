@@ -1,0 +1,9 @@
+@import "../../variable.css";
+
+.heading {
+  color: var(--text-primary);
+  font-family: var(--serif-font-family);
+  font-size: 3.6rem;
+  text-align: center;
+  margin-top: 1rem;
+}
