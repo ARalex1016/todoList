@@ -10,6 +10,7 @@
   .inputField {
     width: 70%;
     height: 100%;
+    color: var(--text-primary);
     font-family: var(--serif-font-family);
     font-size: 2rem;
     background-color: transparent;
@@ -39,6 +40,18 @@
 
     .addBtn {
       font-size: 1.8rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .inputContainer {
+    .inputField {
+      font-size: 1.6rem;
+    }
+
+    .addBtn {
+      font-size: 1.6rem;
     }
   }
 }

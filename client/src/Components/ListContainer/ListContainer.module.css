@@ -64,3 +64,27 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .listContainer {
+    .listItem {
+      .contentInput {
+        width: 80%;
+      }
+
+      .contentPara {
+        width: 80%;
+      }
+
+      .editIcon {
+        width: 10%;
+      }
+      .updateIcon {
+        width: 10%;
+      }
+      .deleteIcon {
+        width: 10%;
+      }
+    }
+  }
+}
