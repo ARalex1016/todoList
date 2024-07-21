@@ -10,12 +10,15 @@ const localStorageKey = "todoLst";
 
 function App() {
   const [todoLst, setTodoLst] = useState(() => {
-    const data = JSON.parse(localStorage.getItem(localStorageKey));
+    const data = JSON.parse(localStorage.getItem(localStorageKey)) || [];
 
-    return data || [];
+    return data.map((item) => ({
+      ...item,
+      editMode: false,
+    }));
   });
 
-  // Add to Local Storage
+  // Update local storage when todoLst changes
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(todoLst));
   }, [todoLst]);
@@ -40,17 +43,45 @@ function App() {
     ]);
   };
 
+  const deleteItem = (id) => {
+    setTodoLst((pre) => {
+      return pre.filter((item) => {
+        return item.id !== id;
+      });
+    });
+  };
+
+  const updateContent = (id, content) => {
+    setTodoLst((pre) => {
+      return pre.map((item) => {
+        return item.id === id ? { ...item, content: content } : item;
+      });
+    });
+  };
+
   const clearAllTodo = () => {
     setTodoLst([]);
   };
 
-  // clearAllTodo();
+  const toggleEditMode = (id) => {
+    setTodoLst((pre) => {
+      return pre.map((item) => ({
+        ...item,
+        editMode: item.id === id ? !item.editMode : false,
+      }));
+    });
+  };
 
   return (
     <>
       <Heading />
       <Input addTodo={addTodo} />
-      <ListContainer todoLst={todoLst} setTodoLst={setTodoLst} />
+      <ListContainer
+        todoLst={todoLst}
+        deleteItem={deleteItem}
+        updateContent={updateContent}
+        toggleEditMode={toggleEditMode}
+      />
       <ClearBtn clearAllTodo={clearAllTodo} />
     </>
   );
