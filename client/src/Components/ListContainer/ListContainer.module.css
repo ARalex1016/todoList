@@ -67,6 +67,8 @@
 
 @media (max-width: 480px) {
   .listContainer {
+    max-height: 34rem;
+
     .listItem {
       .contentInput {
         width: 60%;
