@@ -1,9 +1,10 @@
 @import "../../variable.css";
 
 .inputContainer {
-  width: 50%;
+  width: var(--content-width);
   height: 5rem;
   margin: 2rem auto;
+  padding: 0 0.8rem;
   display: flex;
 
   .inputField {
@@ -26,6 +27,7 @@
     background-color: var(--bg-main);
     border: none;
     padding: 0 1rem;
+    cursor: pointer;
   }
 }
 
@@ -38,23 +40,5 @@
     .addBtn {
       font-size: 1.8rem;
     }
-  }
-}
-
-@media (max-width: 1024px) {
-  .inputContainer {
-    width: 60%;
-  }
-}
-
-@media (max-width: 768px) {
-  .inputContainer {
-    width: 70%;
-  }
-}
-
-@media (max-width: 480px) {
-  .inputContainer {
-    width: 90%;
   }
 }

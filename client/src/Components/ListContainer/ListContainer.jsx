@@ -1,6 +1,21 @@
+import { useState } from "react";
+
+// Styles
 import styles from "./ListContainer.module.css";
 
-const ListContainer = ({ todoLst }) => {
+// Icons
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+
+const ListContainer = ({ todoLst, setTodoLst }) => {
+  const deleteItem = (id) => {
+    setTodoLst((pre) => {
+      return pre.filter((item) => {
+        return item.id !== id;
+      });
+    });
+  };
+
   return (
     <>
       <div className={styles.listContainer}>
@@ -8,12 +23,13 @@ const ListContainer = ({ todoLst }) => {
           {todoLst.map((item) => {
             return (
               <li key={item.id} className={styles.listItem}>
-                <div>
-                  <p className={styles.content}>{item.content}</p>
-                </div>
+                <p className={styles.content}>{item.content}</p>
 
-                <button>as</button>
-                <button>na</button>
+                <FaEdit className={styles.editIcon} />
+                <AiFillDelete
+                  className={styles.deleteIcon}
+                  onClick={() => deleteItem(item.id)}
+                />
               </li>
             );
           })}

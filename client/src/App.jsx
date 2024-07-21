@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Components
 import Heading from "./Components/Heading/Heading";
 import Input from "./Components/Input/Input";
 import ListContainer from "./Components/ListContainer/ListContainer";
+import ClearBtn from "./Components/ClearBtn/ClearBtn";
 
 const localStorageKey = "todoLst";
 
 function App() {
   const [todoLst, setTodoLst] = useState(() => {
-    const storageLst = JSON.parse(localStorage.getItem(localStorageKey));
+    const data = JSON.parse(localStorage.getItem(localStorageKey));
 
-    return storageLst || [];
+    return data || [];
   });
+
+  // Add to Local Storage
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(todoLst));
+  }, [todoLst]);
 
   const addTodo = (content) => {
     // Checking If Input Field is empty or not
@@ -28,20 +34,24 @@ function App() {
       ...pre,
       {
         id: Date.now(),
-        content: content,
-        checked: false,
+        content: content.trim(),
+        editMode: false,
       },
     ]);
-
-    // Add to Local Storage
-    localStorage.setItem(localStorageKey, JSON.stringify(todoLst));
   };
+
+  const clearAllTodo = () => {
+    setTodoLst([]);
+  };
+
+  // clearAllTodo();
 
   return (
     <>
       <Heading />
       <Input addTodo={addTodo} />
-      <ListContainer todoLst={todoLst} />
+      <ListContainer todoLst={todoLst} setTodoLst={setTodoLst} />
+      <ClearBtn clearAllTodo={clearAllTodo} />
     </>
   );
 }

@@ -4,5 +4,25 @@
   --bg-main: #8220f6;
   --text-primary: white;
   --text-secondary: #b8b8b8;
+  --shadow1: rgba(25, 0, 31, 1);
   --serif-font-family: "Noto Serif", serif;
+  --content-width: 50%;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --content-width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --content-width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --content-width: 90%;
+  }
 }

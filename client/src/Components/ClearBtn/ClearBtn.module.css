@@ -1,0 +1,21 @@
+@import "../../variable.css";
+
+.clearBtnContainer {
+  width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  .clearBtn {
+    width: 30%;
+    height: 5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: var(--bg-main);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px var(--shadow1);
+  }
+}
