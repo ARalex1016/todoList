@@ -69,21 +69,21 @@
   .listContainer {
     .listItem {
       .contentInput {
-        width: 80%;
+        width: 60%;
       }
 
       .contentPara {
-        width: 80%;
+        width: 60%;
       }
 
       .editIcon {
-        width: 10%;
+        width: 20%;
       }
       .updateIcon {
-        width: 10%;
+        width: 20%;
       }
       .deleteIcon {
-        width: 10%;
+        width: 20%;
       }
     }
   }
